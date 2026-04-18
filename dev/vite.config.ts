@@ -1,7 +1,16 @@
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import Inspect from 'vite-plugin-inspect'
+import twoRun from '../vite-extension/two-run-plugin';
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-})
+export default {
+  devtools: {
+    build: {
+      withApp: true,
+    }
+  },
+  plugins: [
+    twoRun(),
+    vue(),
+    Inspect(),
+  ],
+};
